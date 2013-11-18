@@ -1,19 +1,22 @@
 
 
-def provide_mortgage(salary=30000, deposit=50000, property_value=200000)
+def provide_mortgage(salary=30000, deposit=150000, property_value=200000)
 	loan_ammount = property_value - deposit
-	min_deposit = 0.2
+	min_deposit = property_value < 650000 ? 0.05 : 0.2
 	max_multiplier = 5
-	if deposit >= property_value * min_deposit && salary * max_multiplier >= loan_ammount
-		puts "yes"
+	if deposit >= property_value * 0.75 
+		puts "Your Mortgage has been accepted"
+	elsif deposit >= property_value * min_deposit && salary * max_multiplier >= loan_ammount
+		puts "Your Mortgage has been accepted with a minimum deposit of #{min_deposit}"
 	else
-		puts "no"
+		puts "Your Mortgage has been declined sorry!"
 	end
 end
 
 provide_mortgage
 
 
+# property_value < 650000 then min_deposit = 0.05
+# propety_value >= 650000 then min_deposit = 0.20
 
-
-
+if 
